@@ -1,0 +1,1 @@
+{"condition":"B1_FLAT_POLICY_SYSTEM","content_hash":"sha256:7459c5d64e91182e7039d98a743f2d4409d008e1a720aa7f82415aab9992a87d","profile":"SSB-CONFIRMATORY-CONDITION-DEFINITION1","requires_block_order":false,"requires_policy":true,"requires_skill":true,"uses_authority_resolver":false,"uses_deterministic_gate":false}

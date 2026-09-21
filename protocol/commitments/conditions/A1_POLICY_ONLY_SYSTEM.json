@@ -1,0 +1,1 @@
+{"condition":"A1_POLICY_ONLY_SYSTEM","content_hash":"sha256:87b5dc2f4c3faf4a18fd3f2397bcd57cbe390b51f64486945ec866ca4d676363","profile":"SSB-CONFIRMATORY-CONDITION-DEFINITION1","requires_block_order":false,"requires_policy":true,"requires_skill":false,"uses_authority_resolver":false,"uses_deterministic_gate":false}

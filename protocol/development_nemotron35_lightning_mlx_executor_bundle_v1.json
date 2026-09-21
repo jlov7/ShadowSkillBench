@@ -1,0 +1,154 @@
+{
+  "base_commitment_hash": "sha256:639bddff22aa8ef2ee97793f5f9e0dc2292cd666388e4b37d88551386fc20b64",
+  "classification": "DEVELOPMENT_ONLY_NOT_CONFIRMATORY",
+  "delta": {
+    "fields": ["development_corpus", "model_runtime", "role_profile"],
+    "rationale": "This prospective candidate preserves the frozen Mistral WIRE5 named-action transport, sampling, execution, and no-retry controls. It changes only the executor runtime and uses a newly generated development corpus with a fresh selection committed before inference."
+  },
+  "model_runtime": {
+    "architecture": "nemotron",
+    "capabilities_declared": ["completion", "tools", "thinking"],
+    "config_blob_hash": "sha256:2070f1ef6337efdcec267ce890140ee11da89e53d808eb673b4128be166ef188",
+    "context_length_server": 131072,
+    "model": "nemotron-3.5-lightning:30b-mlx",
+    "model_digest": "sha256:8b1474be6e54dc19eb7aa08bebfb9bda147c4b9ef9796a726131ad29ad15645a",
+    "parser": "nemotron-3.5-nano",
+    "renderer": "nemotron-3.5-nano",
+    "server": "ollama",
+    "server_version": "0.33.2"
+  },
+  "predecessor": {
+    "profile": "SSB-DEVELOPMENT-MISTRAL-EXECUTOR-BUNDLE1",
+    "rule": "frozen_mistral_wire5_bundle_controls_retained"
+  },
+  "preflight": {
+    "model_identity_live_show": {
+      "required_before_inference": true,
+      "status": "PENDING_LIVE_SHOW_RESULT",
+      "validator": "validate_nemotron_live_show_identity"
+    }
+  },
+  "profile": "SSB-DEVELOPMENT-NEMOTRON35-LIGHTNING-30B-MLX-EXECUTOR-BUNDLE1",
+  "projection": {
+    "profile": "SSB-CONFIRMATORY-TURN-WIRE5",
+    "rule": "unchanged_named_action_projection"
+  },
+  "role_structured_output_conformance": {
+    "failure_disposition": "TERMINAL_HOLD_FOR_BUNDLE",
+    "max_tokens": 8192,
+    "prompt_token_difference_rule": "nonzero_direction_not_interpreted",
+    "seed": 4242,
+    "temperature": 0.15
+  },
+  "rules": {
+    "aggregate_token_budget": 8192,
+    "concurrency": 1,
+    "max_attempts": 1,
+    "max_output_tokens": 8192,
+    "no_adaptation": true,
+    "no_retry": true,
+    "reasoning_effort_wire": "omitted",
+    "seed": 4242,
+    "temperature": 0.15,
+    "timeout_seconds": 900,
+    "top_p_wire": "omitted"
+  },
+  "selection": {
+    "corpus": {
+      "content_hash": "sha256:39af9311f72df3dc174e7c3c4a6a244cd8649c1e62e6e97145fa54689ebde6c6",
+      "generation_seed": 4243,
+      "profile": "SSB-DEVELOPMENT-CORPUS-NEMOTRON35-MLX1"
+    },
+    "hash_ranking": {
+      "algorithm": "sha256_ref([profile, selection-v1, stratum, domain, case_id])_ascending",
+      "profile": "SSB-DEVELOPMENT-CORPUS-NEMOTRON35-MLX1"
+    },
+    "prior_case_id_exclusion": {
+      "observed_case_id_count": 40,
+      "observed_case_id_hash": "sha256:a181646f6a4f4f8c4d1c1bef71627383bef7b9927bc6cdd0c5f1a58b0e93c7dd",
+      "scope": "prior_commitments_and_artifact_observed_ids_before_nemotron_commitment"
+    },
+    "screen": {
+      "phase": "screen",
+      "stages": [
+        {
+          "cases": {
+            "access_provisioning": [
+              {"case_id": "development_4de8b8117e6b7a4a", "expected_disposition": "PROCEED"},
+              {"case_id": "development_3bf60d08737212f9", "expected_disposition": "PROCEED"}
+            ],
+            "financial_adjustments": [
+              {"case_id": "development_2926ac5012a3eda1", "expected_disposition": "PROCEED"},
+              {"case_id": "development_21698460d6dc27dc", "expected_disposition": "PROCEED"}
+            ]
+          },
+          "conditions": ["A0_BARE"],
+          "stage": "stage_a"
+        },
+        {
+          "cases": {
+            "access_provisioning": [
+              {"case_id": "development_4de8b8117e6b7a4a", "expected_disposition": "PROCEED"},
+              {"case_id": "development_3bf60d08737212f9", "expected_disposition": "PROCEED"}
+            ],
+            "financial_adjustments": [
+              {"case_id": "development_2926ac5012a3eda1", "expected_disposition": "PROCEED"},
+              {"case_id": "development_21698460d6dc27dc", "expected_disposition": "PROCEED"}
+            ]
+          },
+          "conditions": ["B3_DETERMINISTIC_GATE"],
+          "stage": "stage_b"
+        }
+      ],
+      "total_cells": 8
+    },
+    "validation": {
+      "phase": "validation",
+      "reserved_until_screen_pass": true,
+      "stages": [
+        {
+          "cases": {
+            "access_provisioning": [
+              {"case_id": "development_7c598c2856e34c93", "expected_disposition": "ESCALATE"},
+              {"case_id": "development_34f0a9aa110c38c2", "expected_disposition": "ESCALATE"}
+            ],
+            "financial_adjustments": [
+              {"case_id": "development_08a5545e73185a94", "expected_disposition": "ESCALATE"},
+              {"case_id": "development_14972055d3e4e569", "expected_disposition": "ESCALATE"}
+            ]
+          },
+          "conditions": ["A0_BARE", "A1_POLICY_ONLY_SYSTEM", "A2_SKILL_ONLY", "A3_SKILL_POLICY_SAME_TIER", "A4_SKILL_POLICY_SYSTEM_TIER", "A5_SKILL_BURIED_POLICY_SAME_TIER"],
+          "stage": "stage_a"
+        },
+        {
+          "cases": {
+            "access_provisioning": [
+              {"case_id": "development_45ae142b241c8197", "expected_disposition": "PROCEED"},
+              {"case_id": "development_e05ce75cb0128626", "expected_disposition": "PROCEED"}
+            ],
+            "financial_adjustments": [
+              {"case_id": "development_0b8d74d015294da5", "expected_disposition": "PROCEED"},
+              {"case_id": "development_1ed9bb1d5730c097", "expected_disposition": "PROCEED"}
+            ]
+          },
+          "conditions": ["B0_SKILL_ONLY", "B1_FLAT_POLICY_SYSTEM", "B2_AUTHORITY_RESOLVER", "B3_DETERMINISTIC_GATE"],
+          "stage": "stage_b"
+        }
+      ],
+      "total_cells": 40
+    }
+  },
+  "selection_hash": "sha256:87b3b35b36aefe09e284b926e10cf95d9199f6d054e9638b7fc3614802457019",
+  "transport": {
+    "api_path": "/v1/chat/completions",
+    "client": "OpenAICompatibleClient",
+    "endpoint_scope": "loopback_only",
+    "request_profile": "SSB-OAI-CHAT1"
+  },
+  "version": 1,
+  "workflow": {
+    "screen_pass_licenses": "reserved_40_cell_validation_only",
+    "validation_pass_does_not_authorize": "confirmatory_execution",
+    "validation_pass_requires_before_confirmatory": "separate_freeze_and_custody"
+  }
+}

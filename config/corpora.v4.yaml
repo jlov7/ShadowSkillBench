@@ -1,0 +1,21 @@
+profile: SSB-CONFIRMATORY-CORPUS4
+corpus_seed: 104733
+development_seeds: [4242, 4243]
+primary_trace_count: 12
+ratios: [0.0, 0.25, 0.5, 0.75, 1.0]
+bundle_seed_derivation: deterministic_from_corpus_seed_domain_ratio_ordinal
+narration: disabled
+stage_a:
+  bundle_seeds_per_domain_ratio: 7
+  held_out_cases_per_domain: 70
+  repeats: 3
+  planned_skill_dependent_episodes: 58800
+  planned_control_episodes: 840
+  total: 59640
+stage_b:
+  r75_skills_per_domain: 7
+  held_out_cases_per_authority_class_domain: 22
+  authority_classes: 5
+  conditions: 4
+  repeats: 3
+  total: 18480

@@ -1,0 +1,16 @@
+profile: SSB-CONFIRMATORY-EXECUTOR6
+model_configuration: config/models.yaml
+transport: ollama_native_api_generate_raw
+request_profile: SSB-OLLAMA-NATIVE-GENERATE-EXECUTOR-REQUEST2
+endpoint_path: /api/generate
+raw: true
+think: false
+reasoning_effort: none
+temperature: 1.0
+seed_policy: manifest_seed_no_replacement
+max_turns: 12
+max_tool_calls: 12
+max_tokens: 8192
+max_attempts: 1
+system_prompt_path: prompts/executor_system.md
+runtime_prompt_manifest_path: protocol/commitments/runtime_prompt_manifest.json

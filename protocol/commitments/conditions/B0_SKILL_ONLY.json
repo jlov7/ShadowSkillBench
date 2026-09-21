@@ -1,0 +1,1 @@
+{"condition":"B0_SKILL_ONLY","content_hash":"sha256:151d0a6ef482388dcbac5afe17eb16f4b400cf9303a471565c4ec958550a3f4a","profile":"SSB-CONFIRMATORY-CONDITION-DEFINITION1","requires_block_order":false,"requires_policy":false,"requires_skill":true,"uses_authority_resolver":false,"uses_deterministic_gate":false}

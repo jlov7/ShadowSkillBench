@@ -1,0 +1,1 @@
+{"allowed_error_codes":["MODEL_PROVIDER_TERMINAL","MODEL_PROVIDER_TRANSIENT"],"max_exclusions_per_primary_cell":1,"max_retries_per_episode":1,"max_total_exclusions":92,"profile":"SSB-EXCLUSION-RULE2","rule_hash":"sha256:dd9b9c60ec27747a4779857fa5344fb34abae3e2c5229658256abd6e7c35d749"}

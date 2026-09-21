@@ -1,0 +1,61 @@
+name: verify
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      UV_CACHE_DIR: /tmp/shadowskillbench-uv-cache
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          python-version: "3.12"
+      - run: uv sync --all-groups --frozen --no-editable
+      - run: make verify
+      - run: uv build --out-dir "${RUNNER_TEMP}/shadowskillbench-dist"
+      - run: uv venv --python 3.12 "${RUNNER_TEMP}/shadowskillbench-wheel-venv"
+      - run: uv pip install --python "${RUNNER_TEMP}/shadowskillbench-wheel-venv/bin/python" "${RUNNER_TEMP}/shadowskillbench-dist/"*.whl
+      - run: '"${RUNNER_TEMP}/shadowskillbench-wheel-venv/bin/shadowskillbench" --help'
+
+  workbench:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: "22"
+      - name: Enable pinned pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@11.22.0 --activate
+      - run: pnpm install --frozen-lockfile
+        working-directory: workbench
+      - run: pnpm run check
+        working-directory: workbench
+      - run: pnpm run test
+        working-directory: workbench
+      - run: pnpm run build
+        working-directory: workbench
+      - run: pnpm exec playwright install --with-deps chromium
+        working-directory: workbench
+      - run: pnpm run e2e
+        working-directory: workbench

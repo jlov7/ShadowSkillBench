@@ -1,0 +1,61 @@
+{
+  "schema": "SSB-WORKBENCH-1",
+  "schema_version": "1.0",
+  "read_only": true,
+  "claim_ceiling": {
+    "status": "hold",
+    "descriptive_only": true,
+    "message": "HOLD: this committed fixture is descriptive only. No confirmatory workbench export has been published.",
+    "technical_exclusions": { "count": 0, "approved": true, "max_total": null, "max_per_primary_cell": null }
+  },
+  "protocol": {
+    "protocol_tag": "unavailable",
+    "code_commit": "unavailable",
+    "freeze_manifest_sha256": null,
+    "analysis_dataset_sha256": null,
+    "prompt_hashes": [],
+    "external_anchor_locator": null,
+    "anchor_receipt_sha256": null,
+    "anchor_verified": false,
+    "experiment_audit_report_sha256": null,
+    "experiment_audit_status": "unavailable",
+    "reproduce_command": "unavailable"
+  },
+  "preregistration": { "status": "hold_missing_valid_preregistration" },
+  "analysis": { "raw_counts": [], "estimands": [], "average_marginal_effects": [], "stage_b": { "e6_unsafe_imitation": [], "e7_false_enforcement": [], "e8_authority_aware_gain": [], "e9_completion_under_policy_delta": [], "e9_unsafe_imitation_delta": [] } },
+  "figures": [
+    {
+      "id": "figure_1",
+      "title": "Completion-under-policy response curves",
+      "summary": "Unavailable: no confirmatory Stage A report rows are present in this fixture.",
+      "columns": ["condition", "contamination_ratio", "estimate", "ci_low", "ci_high", "numerator", "denominator"],
+      "rows": []
+    },
+    {
+      "id": "figure_2",
+      "title": "Compliance and over-enforcement plane",
+      "summary": "Unavailable: no confirmatory Stage B report rows are present in this fixture.",
+      "columns": ["domain", "condition", "unsafe_imitation", "false_enforcement"],
+      "rows": []
+    }
+  ],
+  "summaries": {
+    "domains": [],
+    "cost": { "included_episodes": 0, "total_tokens": 0, "missing_cost_receipts": 0, "total_cost_nanos": null },
+    "metrics": {
+      "ordinary_task_completion": { "status": "unavailable", "unit": "rate", "value": null, "numerator": 0, "denominator": 0, "reason": "no included episodes are available" },
+      "completion_under_policy": { "status": "unavailable", "unit": "rate", "value": null, "numerator": 0, "denominator": 0, "reason": "no included episodes are available" },
+      "unsafe_imitation": { "status": "unavailable", "unit": "rate", "value": null, "numerator": 0, "denominator": 0, "reason": "no included episodes are available" },
+      "false_enforcement": { "status": "unavailable", "unit": "rate", "value": null, "numerator": 0, "denominator": 0, "reason": "no included episodes are available" },
+      "instruction_hierarchy_delta": { "status": "unavailable", "unit": "completion_under_policy_delta", "value": null, "numerator": null, "denominator": null, "reason": "A3 and A4 rows are required" },
+      "latency": { "status": "unavailable", "unit": "milliseconds", "value": null, "reason": "episode artifacts do not record wall-clock latency" },
+      "human_review_burden": { "status": "unavailable", "unit": "review_requests_per_episode", "value": null, "numerator": 0, "denominator": 0, "reason": "no included episodes are available" }
+    },
+    "representative_traces": []
+  },
+  "episode_index": [],
+  "episode_traces": [],
+  "claims": { "ledger_valid": false, "renderable_finding_ids": [] },
+  "limitations": ["Committed HOLD fixture only; it is not a published confirmatory report export.", "No benchmark metrics, episodes, traces, or custody receipts are available to display."],
+  "content_hash": "sha256:8f922091969291755d05c6809bc359196daf5427047d16bc58803abd9ea0a0d0"
+}

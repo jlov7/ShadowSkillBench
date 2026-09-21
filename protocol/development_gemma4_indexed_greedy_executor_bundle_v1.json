@@ -1,0 +1,116 @@
+{
+  "base_commitment_hash": "sha256:32c78d145edffb8bf18c3e9b92168678204a46b18b9fd424b299f59e4def6a39",
+  "classification": "DEVELOPMENT_ONLY_NOT_CONFIRMATORY",
+  "delta": {
+    "field": "rules.temperature",
+    "from": 1.0,
+    "rationale": "The indexed WIRE4 screen completed one task/CuP cell despite eight successful tool-action cells, while six later turns were MODEL_OUTPUT_INVALID (five stop, one length), one was AGENT_INVALID_ACTION, and one was AGENT_BUDGET_EXHAUSTED. This prospective successor changes only sampling temperature.",
+    "to": 0.0
+  },
+  "failure_disposition": "TERMINAL_HOLD_FOR_EXACT_BUNDLE_NO_RETRY",
+  "model_runtime": {
+    "architecture": "gemma4",
+    "capabilities_observed": ["completion", "vision", "audio", "tools", "thinking"],
+    "context_length_observed": 262144,
+    "context_length_server": 131072,
+    "model": "gemma4:12b-it-q4_K_M",
+    "model_digest": "sha256:4eb23ef187e2c5462566d6a1d3bbbc2f1346d0b4327cbb66d58fffbcc9b2b05c",
+    "model_parameters_observed": "11.9B",
+    "modelfile_hash": "sha256:bbeae46c8d3195ac4327ccde7fb29034d991347e8e6eeff3b102a2890cce7f49",
+    "quantization": "Q4_K_M",
+    "server": "ollama",
+    "server_version": "0.33.2"
+  },
+  "predecessor_evidence": {
+    "screen_audit_receipt_hash": "sha256:2e028ae2f74c510641c176c6b3ee80cdb22059b8ff8dee2bfe45630ffb280b19",
+    "screen_status": "HOLD",
+    "successful_tool_action_cells": 8,
+    "task_completion": 1,
+    "completion_under_policy": 1,
+    "model_output_invalid_stop": 5,
+    "model_output_invalid_length": 1,
+    "agent_invalid_action": 1,
+    "agent_budget_exhausted": 1
+  },
+  "profile": "SSB-DEVELOPMENT-GEMMA4-INDEXED-GREEDY-EXECUTOR-BUNDLE1",
+  "projection": {
+    "active_schema_hash": "sha256:c3fc6cfc69598f49eb326fbaf2ee3163bd17b2755c7c368da7a8e382008e8d1e",
+    "finished_schema_hash": "sha256:717933f0d1f178f9a0adb5d5e153bb2a77e95d26646b706824ba10c924c0878f",
+    "initial_schema_hash": "sha256:6bcb9c83ca25a1b28155a55ce0a9717153a573054cf7eef920d5e656f11cf9e4",
+    "profile": "SSB-CONFIRMATORY-TURN-WIRE4",
+    "prompt_hash": "sha256:d8dce969a79c2fa0faaadb37614251ac78600ae9425d79d37cfb84731316970b",
+    "schema_hash": "sha256:8d34e70a12911c8dbdf687d3fd2fe5f0431336ec1a677c089c933c7332002331"
+  },
+  "role_profile": "SSB-OLLAMA-GEMMA4-12B-OAI-CHAT-ROLES4",
+  "role_profile_receipt_status": "REQUIRED_FRESH_TEMPERATURE_ZERO_RECEIPT",
+  "rules": {
+    "aggregate_token_budget": 8192,
+    "concurrency": 1,
+    "max_attempts": 1,
+    "max_output_tokens": 8192,
+    "no_adaptation": true,
+    "no_retry": true,
+    "reasoning_effort_wire": "omitted",
+    "seed": 4242,
+    "temperature": 0.0,
+    "timeout_seconds": 900,
+    "top_p_effective_observed_default": 0.95,
+    "top_p_wire": "omitted"
+  },
+  "selection": {
+    "screen": {
+      "phase": "screen",
+      "stages": [
+        {
+          "cases": {
+            "access_provisioning": [
+              {"case_id": "development_4b1511ca0874f1d6", "expected_disposition": "PROCEED"},
+              {"case_id": "development_5202231265ada18f", "expected_disposition": "PROCEED"}
+            ],
+            "financial_adjustments": [
+              {"case_id": "development_41f7cb993ca63120", "expected_disposition": "PROCEED"},
+              {"case_id": "development_58a3a85e0bdda8cd", "expected_disposition": "PROCEED"}
+            ]
+          },
+          "conditions": ["A0_BARE"],
+          "stage": "stage_a"
+        },
+        {
+          "cases": {
+            "access_provisioning": [
+              {"case_id": "development_bb8756de881b8e9b", "expected_disposition": "PROCEED"},
+              {"case_id": "development_e72db6dd441c22ae", "expected_disposition": "PROCEED"}
+            ],
+            "financial_adjustments": [
+              {"case_id": "development_8a698cbe0c9e6e22", "expected_disposition": "PROCEED"},
+              {"case_id": "development_c65de54a230141c5", "expected_disposition": "PROCEED"}
+            ]
+          },
+          "conditions": ["B3_DETERMINISTIC_GATE"],
+          "stage": "stage_b"
+        }
+      ],
+      "status": "UNEXECUTED_PROSPECTIVE_FRESH_SCREEN",
+      "total_cells": 8
+    },
+    "validation": {
+      "reservation_status": "UNEXECUTED_RESERVED",
+      "reuse_rule": "retain_original_gemma4_v1_validation_selection_exactly",
+      "source_commitment_hash": "sha256:aa0a9bef97bee48926c1d219e32b3164107d3cc953b1b4b60ec2516a8c4e39c2",
+      "source_profile": "SSB-DEVELOPMENT-GEMMA4-EXECUTOR-BUNDLE1"
+    }
+  },
+  "selection_hash": "sha256:cab4af2b935be200706f7dbd0ef45caaaba325fabe338cf39b74960293b5bf0f",
+  "transport": {
+    "api_path": "/v1/chat/completions",
+    "client": "OpenAICompatibleClient",
+    "endpoint_scope": "loopback_only",
+    "request_profile": "SSB-OAI-CHAT1"
+  },
+  "version": 1,
+  "workflow": {
+    "screen_pass_licenses": "reserved_40_cell_validation_only",
+    "validation_pass_does_not_authorize": "confirmatory_execution",
+    "validation_pass_requires_before_confirmatory": "separate_freeze_and_custody"
+  }
+}

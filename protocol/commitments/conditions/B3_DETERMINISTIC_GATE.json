@@ -1,0 +1,1 @@
+{"condition":"B3_DETERMINISTIC_GATE","content_hash":"sha256:05490aa53ebe432b6f0ff4166131800bf4504ce439955474a74cf16646e10e0a","profile":"SSB-CONFIRMATORY-CONDITION-DEFINITION1","requires_block_order":false,"requires_policy":true,"requires_skill":true,"uses_authority_resolver":false,"uses_deterministic_gate":true}

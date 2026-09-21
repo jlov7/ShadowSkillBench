@@ -1,0 +1,63 @@
+name: security-and-provenance
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  public-surface:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          python-version: "3.12"
+      - run: uv sync --all-groups --frozen --no-editable
+      - run: uv run --no-sync python scripts/public_surface_scan.py --self-check
+      - run: uv run --no-sync python scripts/public_surface_scan.py
+      - run: uv run --no-sync python scripts/generate_sbom.py --output "${RUNNER_TEMP}/shadowskillbench.cdx.json"
+      - run: uv run --no-sync python scripts/generate_sbom.py --check "${RUNNER_TEMP}/shadowskillbench.cdx.json"
+      - run: uv run --no-sync python scripts/generate_sbom.py --self-check
+      - run: uv run --no-sync python scripts/verify_pack_manifest.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: shadowskillbench-cyclonedx-sbom
+          path: ${{ runner.temp }}/shadowskillbench.cdx.json
+          if-no-files-found: error
+
+  dependency-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@20cfd1bf945f4377ade1205e4dbc17946fc9a30d # v10.0.1
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@39370e3970a6d050c480ffad4ff0ed4d3fdee5af # v4.1.0
+        with:
+          node-version: "22"
+      - name: Enable pinned pnpm
+        run: |
+          corepack enable
+          corepack prepare pnpm@11.22.0 --activate
+      - run: uv lock --check
+      - run: uv sync --all-groups --frozen --no-editable
+      - run: uv export --frozen --no-dev --no-emit-project --format requirements-txt --output-file "${RUNNER_TEMP}/requirements.txt"
+      - run: uvx --from pip-audit pip-audit --strict -r "${RUNNER_TEMP}/requirements.txt"
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+        working-directory: workbench
+      - run: pnpm audit --audit-level high
+        working-directory: workbench

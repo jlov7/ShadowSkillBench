@@ -1,0 +1,42 @@
+{
+  "name": "shadowskillbench-workbench",
+  "private": true,
+  "version": "0.1.0",
+  "packageManager": "pnpm@11.22.0",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "scripts": {
+    "dev": "NEXT_TELEMETRY_DISABLED=1 next dev",
+    "sync:hold": "node scripts/sync-workbench.mjs --source data/workbench.hold.json",
+    "sync:report": "node scripts/sync-workbench.mjs",
+    "build": "pnpm run build:hold",
+    "build:hold": "pnpm run sync:hold && NEXT_TELEMETRY_DISABLED=1 next build",
+    "build:report": "pnpm run sync:report && NEXT_TELEMETRY_DISABLED=1 next build",
+    "start": "NEXT_TELEMETRY_DISABLED=1 next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm run sync:hold && pnpm lint && pnpm typecheck",
+    "test": "pnpm run sync:hold && vitest run",
+    "test:watch": "vitest",
+    "e2e": "playwright test"
+  },
+  "dependencies": {
+    "next": "16.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1",
+    "@testing-library/react": "16.3.2",
+    "@types/node": "24.7.2",
+    "@types/react": "19.2.18",
+    "@types/react-dom": "19.2.5",
+    "@vitejs/plugin-react": "5.1.1",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.3.3",
+    "jsdom": "28.1.0",
+    "typescript": "5.9.3",
+    "vitest": "4.1.11"
+  }
+}

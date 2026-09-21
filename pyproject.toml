@@ -1,0 +1,89 @@
+[build-system]
+requires = ["hatchling>=1.25", "editables>=0.3"]
+build-backend = "hatchling.build"
+
+[project]
+name = "shadowskillbench"
+version = "0.1.0"
+description = "Synthetic testbed for learned procedures under conflicting authority"
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [{ name = "Jason Lovell" }]
+requires-python = ">=3.12"
+dependencies = [
+  "httpx>=0.28.1",
+  "pydantic>=2.10,<3",
+  "pyyaml>=6.0.2,<7",
+  "statsmodels>=0.14.6",
+  "typer>=0.15,<1",
+]
+
+[project.scripts]
+shadowskillbench = "shadowskillbench.cli:app"
+
+[dependency-groups]
+dev = [
+  "editables>=0.3",
+  "hatchling>=1.25",
+  "hypothesis>=6.120,<7",
+  "jsonschema>=4.23,<5",
+  "pyright>=1.1.390,<2",
+  "pytest>=9.0.3,<10",
+  "ruff>=0.9,<1",
+]
+
+[tool.hatch.build.targets.sdist]
+only-include = [
+  "src/shadowskillbench",
+  "README.md",
+  "LICENSE",
+  "CHANGELOG.md",
+  "CITATION.cff",
+  "SECURITY.md",
+  "CONTRIBUTING.md",
+  "CODE_OF_CONDUCT.md",
+  "config/executor.yaml",
+  "prompts/executor_system.md",
+  "protocol",
+  "pyproject.toml",
+]
+exclude = [
+  "/**/__pycache__",
+  "/**/*.py[cod]",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/shadowskillbench"]
+exclude = [
+  "/src/shadowskillbench/**/__pycache__",
+  "/src/shadowskillbench/**/*.py[cod]",
+]
+
+[tool.hatch.build.targets.wheel.force-include]
+"protocol" = "shadowskillbench/_protocol"
+"prompts/executor_system.md" = "shadowskillbench/_runtime_sources/prompts/executor_system.md"
+"config/executor.yaml" = "shadowskillbench/_runtime_sources/config/executor.yaml"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--import-mode=importlib -m 'not live'"
+markers = [
+  "mutation: bootstrap mutation-marker contracts",
+  "property: generative property contracts",
+  "live: explicitly opt-in provider smoke tests (excluded from default gates)",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+# Historical research and recovery records are immutable evidence, not active
+# distribution code. Runtime source, current scripts, and tests remain linted.
+extend-exclude = ["artifacts", "docs", "evidence", "implementation/IMPLEMENTATION_PLAN.md"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
+
+[tool.pyright]
+pythonVersion = "3.12"
+include = ["src", "scripts"]
+typeCheckingMode = "standard"

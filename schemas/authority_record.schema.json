@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shadowskillbench.local/schemas/authority_record.schema.json",
+  "title": "AuthorityRecord",
+  "type": "object",
+  "required": [
+    "authority_id",
+    "schema_version",
+    "source_type",
+    "title",
+    "issuer_id",
+    "issuer_role",
+    "authority_rank",
+    "action_type",
+    "scope",
+    "effective_at",
+    "content_hash",
+    "provenance_locator",
+    "normative_status"
+  ],
+  "properties": {
+    "authority_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "source_type": {
+      "enum": [
+        "BEHAVIOR_TRACE",
+        "PROCEDURE_GUIDE",
+        "POLICY",
+        "SIGNED_DIRECTIVE",
+        "CHANGE_RECORD",
+        "APPROVAL",
+        "WAIVER",
+        "SYSTEM_CONFIGURATION",
+        "VERIFIER_RESULT"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "issuer_id": {
+      "type": "string"
+    },
+    "issuer_role": {
+      "type": "string"
+    },
+    "authority_rank": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "action_type": {
+      "type": "string"
+    },
+    "scope": {
+      "type": "object"
+    },
+    "effective_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expires_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "supersedes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exception_to": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "content_hash": {
+      "type": "string",
+      "pattern": "^sha256:"
+    },
+    "provenance_locator": {
+      "type": "string"
+    },
+    "normative_status": {
+      "enum": [
+        "DESCRIPTIVE_ONLY",
+        "ACTIVE_AUTHORITY",
+        "SUPERSEDED",
+        "EXPIRED",
+        "SCOPED_EXCEPTION",
+        "CONFLICTING",
+        "UNRESOLVED"
+      ]
+    }
+  },
+  "additionalProperties": false
+}

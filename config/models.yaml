@@ -1,0 +1,19 @@
+profile: SSB-CONFIRMATORY-LOCAL-GPT-OSS1
+provider: ollama-gpt-oss-20b-harmony-roles
+ollama_server_version: "0.33.2"
+base_model:
+  name: gpt-oss:20b
+  digest: sha256:17052f91a42e97930aa6e28a6c6c06a983e6a58dbb00434885a0cf5313e376f7
+compiler:
+  model: ssb-gpt-oss-20b-harmony-roles:v1
+  derived_model_digest: sha256:a939fca6d222577c1a6534f6be3c9f01f69ef646081b3d44e924257d3eb04289
+executor:
+  model: ssb-gpt-oss-20b-harmony-final:v2
+  derived_model_digest: sha256:0ea56576556e5ba38e4fddccf0eaebee959aea5250913c12e6b3d5d80d225790
+  modelfile_sha256: sha256:f585fdf6bc29dc738b3062a3dd566c9fc66b16dff22ed2d58b3aec44bbbd7db9
+  template_sha256: sha256:17fc65ba53a99773d64965b6a07f9a2b2b0db461bc40af32ea0300eda40d95bb
+server:
+  context_length: 131072
+  request_timeout_seconds: 900
+  concurrency: 1
+  top_p: 1.0

@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shadowskillbench.local/schemas/skill_ir.schema.json",
+  "title": "SkillIR",
+  "type": "object",
+  "required": [
+    "skill_id",
+    "schema_version",
+    "domain",
+    "objective",
+    "applicability",
+    "required_inputs",
+    "ordered_steps",
+    "verification_steps",
+    "source_trace_ids",
+    "instruction_provenance",
+    "compiler_manifest_ref"
+  ],
+  "properties": {
+    "skill_id": {
+      "type": "string",
+      "pattern": "^skill_[a-z0-9_-]+$"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "domain": {
+      "enum": [
+        "access_provisioning",
+        "financial_adjustments"
+      ]
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "applicability": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "required_inputs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preconditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ordered_steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "step_id",
+          "action_intent",
+          "tool_name",
+          "argument_bindings",
+          "optional",
+          "evidence_refs"
+        ],
+        "properties": {
+          "step_id": {
+            "type": "string"
+          },
+          "action_intent": {
+            "type": "string"
+          },
+          "tool_name": {
+            "type": "string"
+          },
+          "argument_bindings": {
+            "type": "object"
+          },
+          "preconditions": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "optional": {
+            "type": "boolean"
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "decision_hints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "verification_steps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "stop_conditions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "escalation_hints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "source_trace_ids": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "instruction_provenance": {
+      "type": "object"
+    },
+    "compiler_manifest_ref": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,156 @@
+{
+  "classification": "SOFTWARE_AND_METHODS_NOT_CONFIRMATORY_RESULTS",
+  "files": [
+    {
+      "bytes": 7342,
+      "path": "README.md",
+      "sha256": "ebef1d6266cbdbbb90103499e5e0b3959c0cc36f979328ff38f32578249f5ab7"
+    },
+    {
+      "bytes": 1740,
+      "path": "docs/README.md",
+      "sha256": "4e65ab5c0e5f5c5b50f44ebbbf37339b836c30c76867cced302ab5c6e0ec28da"
+    },
+    {
+      "bytes": 3290,
+      "path": "docs/ARCHITECTURE_DECISIONS.md",
+      "sha256": "94aa0e74e638f2d24ecc1a586de38f53db92e169c6c75afd2561834eea43b3d2"
+    },
+    {
+      "bytes": 2142,
+      "path": "docs/RESEARCH_BOUNDARY.md",
+      "sha256": "5ed514a95482906ed8e011515117bf5655472b29efc4e48d3f6edc64920c7c1f"
+    },
+    {
+      "bytes": 2052,
+      "path": "docs/OFFLINE_EXAMPLE.md",
+      "sha256": "d0d7d254f3d3c571fe7eb328aa7a4d3d7209c53d1730bcdf6dbc2215b8700eec"
+    },
+    {
+      "bytes": 7665,
+      "path": "docs/03_BENCHMARK_PROTOCOL.md",
+      "sha256": "837c1f7965a0b0fe4cade29e60a29f5364e076e08d207ae8b9841bcccec557b1"
+    },
+    {
+      "bytes": 3380,
+      "path": "docs/04_DOMAIN_ACCESS_PROVISIONING.md",
+      "sha256": "89fc0907066bfccba70c5cdd9856294c974d158053f63cd67b02e6e8a35bb0ea"
+    },
+    {
+      "bytes": 3571,
+      "path": "docs/05_DOMAIN_FINANCIAL_ADJUSTMENTS.md",
+      "sha256": "164b6162afd76c3aff9ee021787fd8cf31aa1e3b0afdb39555a0357d77a9302c"
+    },
+    {
+      "bytes": 2724,
+      "path": "docs/06_AUTHORITY_AND_EVIDENCE_MODEL.md",
+      "sha256": "18951fadb08d58a3f6ab56a13a0f2a96d300af0bdfecd8cf2a216a7061937afa"
+    },
+    {
+      "bytes": 4354,
+      "path": "docs/07_SKILL_INDUCTION_AND_EXECUTION_SPEC.md",
+      "sha256": "a04c0fc427d49b246c6e83b31422c49d5488e67cef18da15ab0068db78bc66a8"
+    },
+    {
+      "bytes": 4437,
+      "path": "docs/08_EXPERIMENT_AND_STATISTICS_SPEC.md",
+      "sha256": "ef4668ced41f6cf7cfa10477ab4ae281afb8edcb63c32d5eb0ab518b39808eb2"
+    },
+    {
+      "bytes": 2983,
+      "path": "docs/10_SECURITY_PRIVACY_GOVERNANCE.md",
+      "sha256": "8dd4fbfdcf1d9c10b7cc84a35cf4e1cb0eb1fd8461d2c8b9044809971f471075"
+    },
+    {
+      "bytes": 9627,
+      "path": "docs/15_TECHNICAL_ARCHITECTURE.md",
+      "sha256": "75eecb799a7e057648dadf4ca9ef49fec6db2e5fcc3ad2a9dc5ae43c774166db"
+    },
+    {
+      "bytes": 3422,
+      "path": "docs/16_TEST_STRATEGY.md",
+      "sha256": "179db2fc02e04f836d50b32eb0bf738c87dd5782e9295c08e396ff45f13793c5"
+    },
+    {
+      "bytes": 18895,
+      "path": "docs/17_PROTOCOL_FREEZE_RUNBOOK.md",
+      "sha256": "2b6d1395d792431f70ac8ccc293e73c9b854e0b303ea909e072941510882128d"
+    },
+    {
+      "bytes": 3021,
+      "path": "docs/PROTOCOL_FREEZE_RUNBOOK.md",
+      "sha256": "1282ab1b0557c61e364458ea90f61709525d9464e3dbf3af78674426779e3119"
+    },
+    {
+      "bytes": 2247,
+      "path": "protocol/CLAIMS_LEDGER.yaml",
+      "sha256": "bde1ea14eae50e5bbc385f8a5f7deab614479b4955d71903fb2dff787960390f"
+    },
+    {
+      "bytes": 663,
+      "path": "config/compiler.yaml",
+      "sha256": "c267a43a54f8bcceae225ca52dd133111d0bebb1a992a0c96a3b099bbac51600"
+    },
+    {
+      "bytes": 6747,
+      "path": "protocol/preregistration.md",
+      "sha256": "d79c309ad10d31145624c6f2b477ca08e00e3e3d91d011b06df503a35aa9de1c"
+    },
+    {
+      "bytes": 803,
+      "path": "config/models.yaml",
+      "sha256": "e1223a0dfecb50be07036134391884cd6e78bbf8893313c3e55f2d601a81df4d"
+    },
+    {
+      "bytes": 2171,
+      "path": "schemas/action_trace.schema.json",
+      "sha256": "620a7f6dfea9ea7f5f327127aee01e8127dc790c6ea33229c4c06edb344971f8"
+    },
+    {
+      "bytes": 1976,
+      "path": "schemas/authority_record.schema.json",
+      "sha256": "cac87f8172813090c49851081bacfa890aef0579d4e5fd5f9e0999796a2ddb08"
+    },
+    {
+      "bytes": 2281,
+      "path": "schemas/episode_manifest.schema.json",
+      "sha256": "fd6bda31ebf6bd2b188c2a302133a97f5dd7076c6c655140b0fcff1aeb2bc3cb"
+    },
+    {
+      "bytes": 2804,
+      "path": "schemas/skill_ir.schema.json",
+      "sha256": "fc07865d4f738c13667641c8c65d93c99bcd2ce52449ef23902d79c655e2c065"
+    },
+    {
+      "bytes": 1872,
+      "path": "prompts/confirmatory_skill_compiler.md",
+      "sha256": "719af308fbf6425fe721802920b267a906db6adfb0cd694fbb5063181a3c91ec"
+    },
+    {
+      "bytes": 474,
+      "path": "prompts/executor_system.md",
+      "sha256": "63b7313684b706f2601c8462ac4d980f5536e8b078a978951d111a22dfa3e1c0"
+    },
+    {
+      "bytes": 2712,
+      "path": "prompts/skill_compiler.md",
+      "sha256": "91291156e774d6b3fc5f2572e153d434b0ab5954eb6d6312643417bf1d412c7b"
+    },
+    {
+      "bytes": 576,
+      "path": "config/corpora.yaml",
+      "sha256": "6ab6376805a0341904d46fa73ced24969345526c3e3b3cd90eb925deb034e719"
+    },
+    {
+      "bytes": 507,
+      "path": "config/executor.yaml",
+      "sha256": "fc15f14185f61e30b843293364d89a49e9265b44380b90b828aaed493ec314bb"
+    },
+    {
+      "bytes": 812,
+      "path": "config/statistics.yaml",
+      "sha256": "a1aa62d66d29569d3641d94676d71e8050b7ba57d0c914e077b77fa58fb3f120"
+    }
+  ],
+  "pack_version": "1.0-public-methods-preview"
+}

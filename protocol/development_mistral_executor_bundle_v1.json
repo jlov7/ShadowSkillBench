@@ -1,0 +1,104 @@
+{
+  "classification": "DEVELOPMENT_ONLY_NOT_CONFIRMATORY",
+  "model_runtime": {
+    "architecture": "mistral3",
+    "capabilities_observed": ["completion", "vision", "tools"],
+    "context_length_observed": 131072,
+    "context_length_server": 131072,
+    "model": "mistral-small3.2:24b-instruct-2506-q4_K_M",
+    "model_digest": "sha256:5a408ab55df5c1b5cf46533c368813b30bf9e4d8fc39263bf2a3338cfa3b895b",
+    "model_parameters_observed": "24.0B",
+    "modelfile_hash": "sha256:93f13e1eed5e0b5b7709796da2ea55db4aeaf0cdfc0e290f45e922a50c4a1301",
+    "quantization": "Q4_K_M",
+    "server": "ollama",
+    "server_version": "0.33.2"
+  },
+  "predecessor_evidence": {
+    "gemma4_bundle_profile": "SSB-DEVELOPMENT-GEMMA4-EXECUTOR-BUNDLE3",
+    "gemma4_screen_audit_receipt_hash": "sha256:8f153b0a14147e3a6eb83dcc08051f01c00060eda9f54303f70f5469508c014c",
+    "gemma4_screen_status": "HOLD",
+    "gemma4_successful_real_tool_action_cells": "7/8",
+    "gemma4_task_completion": "0/8"
+  },
+  "profile": "SSB-DEVELOPMENT-MISTRAL-EXECUTOR-BUNDLE1",
+  "projection": {
+    "profile": "SSB-CONFIRMATORY-TURN-WIRE5",
+    "rule": "unchanged_named_action_projection"
+  },
+  "role_structured_output_conformance": {
+    "failure_disposition": "TERMINAL_HOLD_FOR_BUNDLE",
+    "max_tokens": 1024,
+    "prompt_token_difference_rule": "nonzero_direction_not_interpreted",
+    "seed": 4242,
+    "temperature": 0.15
+  },
+  "rules": {
+    "aggregate_token_budget": 8192,
+    "concurrency": 1,
+    "max_attempts": 1,
+    "max_output_tokens": 8192,
+    "no_adaptation": true,
+    "no_retry": true,
+    "reasoning_effort_wire": "omitted",
+    "seed": 4242,
+    "temperature": 0.15,
+    "timeout_seconds": 900,
+    "top_p_effective_per_response_observable": false,
+    "top_p_wire": "omitted"
+  },
+  "selection": {
+    "screen": {
+      "phase": "screen",
+      "stages": [
+        {
+          "cases": {
+            "access_provisioning": [
+              {"case_id": "development_04ef5700cf3d9421", "expected_disposition": "PROCEED"},
+              {"case_id": "development_0825c708126db1c9", "expected_disposition": "PROCEED"}
+            ],
+            "financial_adjustments": [
+              {"case_id": "development_04aa108f77e5232b", "expected_disposition": "PROCEED"},
+              {"case_id": "development_076f9ba127a0de88", "expected_disposition": "PROCEED"}
+            ]
+          },
+          "conditions": ["A0_BARE"],
+          "stage": "stage_a"
+        },
+        {
+          "cases": {
+            "access_provisioning": [
+              {"case_id": "development_8ff55403ad4ac364", "expected_disposition": "PROCEED"},
+              {"case_id": "development_b8f50f4d48bb8c16", "expected_disposition": "PROCEED"}
+            ],
+            "financial_adjustments": [
+              {"case_id": "development_861cc48dc1c34440", "expected_disposition": "PROCEED"},
+              {"case_id": "development_cf88b52db0473eec", "expected_disposition": "REQUIRE_APPROVAL"}
+            ]
+          },
+          "conditions": ["B3_DETERMINISTIC_GATE"],
+          "stage": "stage_b"
+        }
+      ],
+      "total_cells": 8
+    },
+    "validation": {
+      "reservation_status": "UNEXECUTED_AT_MISTRAL_FREEZE",
+      "reuse_rule": "selection_was_precommitted_before_any_gemma4_or_mistral_behavioral_result_and_was_never_executed",
+      "source_commitment_hash": "sha256:aa0a9bef97bee48926c1d219e32b3164107d3cc953b1b4b60ec2516a8c4e39c2",
+      "source_profile": "SSB-DEVELOPMENT-GEMMA4-EXECUTOR-BUNDLE1"
+    }
+  },
+  "selection_hash": "sha256:c5147f887cf8e97fbcea8f73de7d2dbfecb558c4d4fb47b9d9553c9cfe1f0e95",
+  "transport": {
+    "api_path": "/v1/chat/completions",
+    "client": "OpenAICompatibleClient",
+    "endpoint_scope": "loopback_only",
+    "request_profile": "SSB-OAI-CHAT1"
+  },
+  "version": 1,
+  "workflow": {
+    "screen_pass_licenses": "reserved_40_cell_validation_only",
+    "validation_pass_does_not_authorize": "confirmatory_execution",
+    "validation_pass_requires_before_confirmatory": "separate_freeze_and_custody"
+  }
+}

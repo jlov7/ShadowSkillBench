@@ -1,0 +1,15 @@
+packages:
+  - "."
+
+minimumReleaseAge: 1440
+trustPolicy: no-downgrade
+trustPolicyIgnoreAfter: 10080
+
+overrides:
+  js-yaml: 4.3.2
+
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
+minimumReleaseAgeExclude:
+  - eslint@10.9.1

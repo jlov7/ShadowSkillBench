@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shadowskillbench.local/schemas/episode_manifest.schema.json",
+  "title": "EpisodeManifest",
+  "type": "object",
+  "required": [
+    "episode_id",
+    "schema_version",
+    "stage",
+    "condition",
+    "domain",
+    "case_id",
+    "world_hash",
+    "executor_model",
+    "prompt_hashes",
+    "policy_hash",
+    "skill_hash",
+    "seed",
+    "budgets",
+    "status"
+  ],
+  "properties": {
+    "episode_id": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "stage": {
+      "enum": [
+        "development",
+        "confirmatory_a",
+        "confirmatory_b",
+        "exploratory_c"
+      ]
+    },
+    "condition": {
+      "enum": [
+        "A0_BARE",
+        "A1_POLICY_ONLY_SYSTEM",
+        "A2_SKILL_ONLY",
+        "A3_SKILL_POLICY_SAME_TIER",
+        "A4_SKILL_POLICY_SYSTEM_TIER",
+        "A5_SKILL_BURIED_POLICY_SAME_TIER",
+        "B0_SKILL_ONLY",
+        "B1_FLAT_POLICY_SYSTEM",
+        "B2_AUTHORITY_RESOLVER",
+        "B3_DETERMINISTIC_GATE"
+      ]
+    },
+    "domain": {
+      "enum": [
+        "access_provisioning",
+        "financial_adjustments"
+      ]
+    },
+    "case_id": {
+      "type": "string"
+    },
+    "skill_bundle_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contamination_ratio": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 1
+    },
+    "world_hash": {
+      "type": "string",
+      "pattern": "^sha256:"
+    },
+    "executor_model": {
+      "type": "object"
+    },
+    "prompt_hashes": {
+      "type": "object"
+    },
+    "policy_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "skill_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "authority_graph_hash": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "seed": {
+      "type": "integer"
+    },
+    "budgets": {
+      "type": "object"
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "running",
+        "completed",
+        "technical_failure"
+      ]
+    },
+    "artifact_refs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

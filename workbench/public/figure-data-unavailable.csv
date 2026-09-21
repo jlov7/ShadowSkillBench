@@ -1,0 +1,4 @@
+figure,metric,value,availability
+figure_1,completion_under_policy,unavailable,no_confirmatory_report_rows
+figure_2,unsafe_imitation,unavailable,no_confirmatory_report_rows
+figure_2,false_enforcement,unavailable,no_confirmatory_report_rows

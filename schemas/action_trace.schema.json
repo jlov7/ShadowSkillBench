@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://shadowskillbench.local/schemas/action_trace.schema.json",
+  "title": "ActionTrace",
+  "type": "object",
+  "required": [
+    "trace_id",
+    "schema_version",
+    "domain",
+    "task_template_id",
+    "worker_policy_id",
+    "worker_role",
+    "world_hash",
+    "events",
+    "terminal_state_hash",
+    "local_task_outcome"
+  ],
+  "properties": {
+    "trace_id": {
+      "type": "string",
+      "pattern": "^trace_[a-z0-9_-]+$"
+    },
+    "schema_version": {
+      "const": "1.0"
+    },
+    "domain": {
+      "enum": [
+        "access_provisioning",
+        "financial_adjustments"
+      ]
+    },
+    "task_template_id": {
+      "type": "string"
+    },
+    "worker_policy_id": {
+      "type": "string"
+    },
+    "worker_role": {
+      "type": "string"
+    },
+    "world_hash": {
+      "type": "string",
+      "pattern": "^sha256:"
+    },
+    "narration_mode": {
+      "enum": [
+        "none",
+        "neutral",
+        "rationalized"
+      ]
+    },
+    "events": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "event_id",
+          "index",
+          "kind",
+          "payload"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string"
+          },
+          "index": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "kind": {
+            "enum": [
+              "observation",
+              "action",
+              "tool_result",
+              "state_delta",
+              "narration"
+            ]
+          },
+          "payload": {
+            "type": "object"
+          },
+          "timestamp_ms": {
+            "type": "integer",
+            "minimum": 0
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "terminal_state_hash": {
+      "type": "string",
+      "pattern": "^sha256:"
+    },
+    "local_task_outcome": {
+      "enum": [
+        "completed",
+        "failed",
+        "escalated"
+      ]
+    },
+    "hidden_benchmark_metadata_ref": {
+      "type": "string"
+    }
+  },
+  "additionalProperties": false
+}

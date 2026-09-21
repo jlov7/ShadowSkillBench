@@ -1,0 +1,1 @@
+{"condition":"B2_AUTHORITY_RESOLVER","content_hash":"sha256:d475c8cc1e9a7d96dd0b8619245d1cf62efceafaa4cf225d011f9018f5f666b2","profile":"SSB-CONFIRMATORY-CONDITION-DEFINITION1","requires_block_order":false,"requires_policy":true,"requires_skill":true,"uses_authority_resolver":true,"uses_deterministic_gate":false}

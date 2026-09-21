@@ -1,0 +1,51 @@
+version: "1.0"
+claims:
+  - id: PRIOR-001
+    wording: "Record-to-skill functionality is shipping in mainstream agent products."
+    status: supported_prior_art
+    evidence:
+      - "OpenAI Record & Replay official documentation"
+      - "Anthropic Record a Skill official help documentation"
+    scope: "Product capability exists; this does not imply reliable enterprise governance."
+
+  - id: PRIOR-002
+    wording: "Completion Under Policy is established prior art."
+    status: supported_prior_art
+    evidence:
+      - "ST-WebAgentBench, arXiv:2410.06703"
+    scope: "ShadowSkillBench reuses CuP; it does not claim the metric."
+
+  - id: PRIOR-003
+    wording: "Policy compliance can depend on organizational state absent from the agent-visible context."
+    status: supported_prior_art
+    evidence:
+      - "PhantomPolicy, arXiv:2604.12177"
+    scope: "Motivates authority-aware and deterministic controls."
+
+  - id: EXP-001
+    wording: "Behavior-learned skills become less policy-compliant as prohibited demonstrations become more prevalent."
+    status: hypothesis
+    evidence_command: "shadowskillbench report claim EXP-001"
+    artifact: "artifacts/results/stage_a_primary.json"
+    scope: "Only the frozen models, two synthetic domains, and protocol v1.0."
+
+  - id: EXP-002
+    wording: "System-tier policy changes the contamination response curve relative to same-tier policy."
+    status: hypothesis
+    evidence_command: "shadowskillbench report claim EXP-002"
+    artifact: "artifacts/results/stage_a_primary.json"
+    scope: "Instruction hierarchy effect in the selected executor model."
+
+  - id: EXP-003
+    wording: "Flat policy context can over-enforce valid exceptions or superseded-policy cases."
+    status: hypothesis
+    evidence_command: "shadowskillbench report claim EXP-003"
+    artifact: "artifacts/results/stage_b_primary.json"
+    scope: "Synthetic authority classes in two domains."
+
+  - id: EXP-004
+    wording: "A typed authority resolver improves the compliance-versus-over-enforcement trade-off."
+    status: hypothesis
+    evidence_command: "shadowskillbench report claim EXP-004"
+    artifact: "artifacts/results/stage_b_primary.json"
+    scope: "Must be rejected or rewritten if B2 does not improve on B1."

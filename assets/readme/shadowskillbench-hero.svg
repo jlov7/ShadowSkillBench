@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720" role="img" aria-labelledby="hero-title hero-desc">
+  <title id="hero-title">Observed procedure meets authorized policy</title>
+  <desc id="hero-desc">A synthetic practice trace becomes a learned skill, then meets current authority. The authorized path ends in safe action; an unresolved or prohibited path ends in hold and escalation. The moving dashed paths stop when reduced motion is preferred.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#08182a"/>
+      <stop offset="0.58" stop-color="#102d42"/>
+      <stop offset="1" stop-color="#123d46"/>
+    </linearGradient>
+    <linearGradient id="teal-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4dd5c8"/>
+      <stop offset="1" stop-color="#9be9cc"/>
+    </linearGradient>
+    <linearGradient id="amber-line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffb454"/>
+      <stop offset="1" stop-color="#ffd18a"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020b16" flood-opacity="0.38"/>
+    </filter>
+    <style>
+      .sans { font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+      .eyebrow { font-size: 12px; font-weight: 750; letter-spacing: 2px; }
+      .label { font-size: 13px; font-weight: 700; letter-spacing: 1.1px; }
+      .body { font-size: 17px; font-weight: 520; }
+      .small { font-size: 13px; font-weight: 520; }
+      .flow { fill: none; stroke-linecap: round; stroke-linejoin: round; stroke-dasharray: 7 13; animation: dash 2.4s cubic-bezier(.37,0,.63,1) infinite; }
+      .pulse { animation: pulse 2.8s cubic-bezier(.22,1,.36,1) infinite; transform-box: fill-box; transform-origin: center; }
+      .card { filter: url(#shadow); }
+      @keyframes dash { to { stroke-dashoffset: -40; } }
+      @keyframes pulse { 0%, 100% { opacity: .54; transform: scale(.9); } 50% { opacity: 1; transform: scale(1.12); } }
+      @media (prefers-reduced-motion: reduce) {
+        .flow, .pulse { animation: none !important; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <path d="M0 580 C220 520 350 675 580 596 S1000 510 1280 600 V720 H0 Z" fill="#071421" opacity=".34"/>
+  <path d="M0 170 C190 88 330 190 500 132 S920 80 1280 162" fill="none" stroke="#72cfc0" stroke-opacity=".11" stroke-width="1"/>
+  <path d="M0 188 C190 106 330 208 500 150 S920 98 1280 180" fill="none" stroke="#72cfc0" stroke-opacity=".07" stroke-width="1"/>
+
+  <g class="sans" fill="#dffaf2">
+    <text x="64" y="64" class="eyebrow" fill="#7bd9ca">SHADOWSKILLBENCH / SYNTHETIC BENCHMARK</text>
+    <text x="64" y="136" font-size="58" font-weight="760" letter-spacing="-2.4">A learned shortcut</text>
+    <text x="64" y="198" font-size="58" font-weight="760" letter-spacing="-2.4" fill="#ffd18a">is not a rule.</text>
+    <text x="67" y="230" class="body" fill="#a7c8c5">Observed procedure enters the skill. Current authority decides what happens next.</text>
+  </g>
+
+  <g class="card">
+    <rect x="64" y="282" width="332" height="282" rx="18" fill="#fff7e9"/>
+    <rect x="64" y="282" width="332" height="8" rx="4" fill="#e5a13c"/>
+    <rect x="76" y="296" width="308" height="256" rx="14" fill="none" stroke="#edd8b5" stroke-width="1"/>
+    <g class="sans">
+      <text x="90" y="329" class="eyebrow" fill="#a85b19">01 / OBSERVED PROCEDURE</text>
+      <text x="90" y="364" font-size="25" font-weight="760" fill="#132b3a">What people did</text>
+      <text x="90" y="399" class="small" fill="#5b6870">A practice trace is descriptive evidence.</text>
+      <path d="M96 431 H350" stroke="#e2d3bd"/>
+      <circle cx="105" cy="458" r="6" fill="#2f8d82"/>
+      <text x="124" y="464" class="body" fill="#203b44">Read the request</text>
+      <circle cx="105" cy="491" r="6" fill="#d97725"/>
+      <text x="124" y="497" class="body" fill="#203b44">Skip the approval</text>
+      <circle cx="105" cy="524" r="6" fill="#2f8d82"/>
+      <text x="124" y="530" class="body" fill="#203b44">Commit the change</text>
+      <rect x="90" y="540" width="133" height="18" rx="9" fill="#ffe4ba"/>
+      <text x="102" y="553" class="mono" font-size="9" font-weight="700" fill="#9a541c">DESCRIPTIVE_ONLY</text>
+    </g>
+  </g>
+
+  <g class="card">
+    <rect x="462" y="282" width="332" height="282" rx="18" fill="#102c3c"/>
+    <rect x="462" y="282" width="332" height="8" rx="4" fill="#55cfc1"/>
+    <rect x="474" y="296" width="308" height="260" rx="14" fill="none" stroke="#285365" stroke-width="1"/>
+    <g class="sans">
+      <text x="488" y="329" class="eyebrow" fill="#73ddcf">02 / LEARNED ARTIFACT</text>
+      <text x="488" y="364" font-size="25" font-weight="760" fill="#effff8">What the skill carries</text>
+      <text x="488" y="399" class="small" fill="#a7c8c5">SkillIR → rendered SKILL.md</text>
+      <rect x="488" y="423" width="280" height="91" rx="10" fill="#071c29" stroke="#285365"/>
+      <text x="508" y="450" class="mono" font-size="13" fill="#9be9cc">procedure.learned = true</text>
+      <text x="508" y="475" class="mono" font-size="13" fill="#ffd18a">shortcut.frequency = common</text>
+      <text x="508" y="500" class="mono" font-size="13" fill="#ff9a80">authority.status = unknown</text>
+      <text x="488" y="536" class="small" fill="#b8d7d2">A faithful imitation still needs</text>
+      <text x="488" y="553" class="small" fill="#b8d7d2">an authority check.</text>
+    </g>
+  </g>
+
+  <g class="card">
+    <rect x="860" y="282" width="356" height="282" rx="18" fill="#f3fbf7"/>
+    <rect x="860" y="282" width="356" height="8" rx="4" fill="#4abcae"/>
+    <rect x="872" y="296" width="332" height="256" rx="14" fill="none" stroke="#c5e5db" stroke-width="1"/>
+    <g class="sans">
+      <text x="886" y="329" class="eyebrow" fill="#177f76">03 / CURRENT AUTHORITY</text>
+      <text x="886" y="364" font-size="25" font-weight="760" fill="#123641">What is allowed now</text>
+      <text x="886" y="399" class="small" fill="#526d6d">Policy, scope, date, exception, conflict.</text>
+      <rect x="886" y="423" width="304" height="43" rx="9" fill="#ddf4ec"/>
+      <text x="906" y="450" class="body" font-weight="700" fill="#17675f">Approval required before commit</text>
+      <path d="M1038 466 V482" stroke="#4abcae" stroke-width="2"/>
+      <circle cx="1038" cy="483" r="5" fill="#4abcae" class="pulse"/>
+      <rect x="886" y="493" width="145" height="42" rx="9" fill="#1d8c7e"/>
+      <text x="907" y="519" class="label" fill="#effff8">SAFE ACTION</text>
+      <rect x="1045" y="493" width="145" height="42" rx="9" fill="#d9872d"/>
+      <text x="1059" y="519" class="sans" font-size="10" font-weight="750" letter-spacing=".8" fill="#fff8eb">HOLD / ESCALATE</text>
+      <text x="886" y="558" class="small" fill="#526d6d">Unresolved authority is not permission to imitate.</text>
+    </g>
+  </g>
+
+  <g aria-hidden="true">
+    <path d="M396 423 C420 423 437 423 462 423" class="flow" stroke="url(#amber-line)" stroke-width="4"/>
+    <circle cx="428" cy="423" r="6" fill="#ffd18a" class="pulse"/>
+    <path d="M794 423 C820 423 835 423 860 423" class="flow" stroke="url(#teal-line)" stroke-width="4"/>
+    <circle cx="828" cy="423" r="6" fill="#9be9cc" class="pulse"/>
+    <path d="M560 560 C700 650 875 626 966 535" class="flow" stroke="#ff8875" stroke-width="3" opacity=".78"/>
+    <text x="925" y="603" class="sans" font-size="10" font-weight="700" letter-spacing="1" fill="#ffb1a2">UNAUTHORIZED PRACTICE → UNSAFE PATH</text>
+  </g>
+
+  <g class="sans">
+    <rect x="64" y="622" width="260" height="38" rx="19" fill="#153f4d" stroke="#2d6871"/>
+    <circle cx="86" cy="641" r="5" fill="#e5a13c"/>
+    <text x="101" y="646" class="label" fill="#e7f9f2">PRACTICE ≠ AUTHORITY</text>
+    <rect x="342" y="622" width="248" height="38" rx="19" fill="#153f4d" stroke="#2d6871"/>
+    <circle cx="364" cy="641" r="5" fill="#4abcae"/>
+    <text x="379" y="646" class="label" fill="#e7f9f2">READ-ONLY EVIDENCE</text>
+    <rect x="608" y="622" width="292" height="38" rx="19" fill="#513c29" stroke="#a76c30"/>
+    <circle cx="630" cy="641" r="5" fill="#ffd18a"/>
+    <text x="645" y="646" class="label" fill="#fff0d2">HOLD IS A VALID RESULT</text>
+    <text x="1216" y="646" text-anchor="end" class="mono" font-size="11" fill="#80b8b1">PRACTICE_NOT_EVIDENCE</text>
+  </g>
+</svg>

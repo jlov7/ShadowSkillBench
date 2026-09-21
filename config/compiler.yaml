@@ -1,0 +1,16 @@
+profile: SSB-CONFIRMATORY-COMPILER6
+provider_profile: SSB-OLLAMA-GPT-OSS-20B-HARMONY-ROLES11
+model_configuration: config/models.yaml
+prompt_path: prompts/confirmatory_skill_compiler.md
+prompt_profile: SSB-CONFIRMATORY-COMPACT-WIRE-COMPILER1
+output_schema_path: protocol/commitments/confirmatory_compiler_wire.schema.json
+output_schema_model: ConfirmatorySkillIRWire
+reasoning_effort: low
+temperature: 1.0
+seed: 4243
+max_tokens: 16384
+max_attempts: 1
+transport: ollama_native_api_generate_raw
+request_profile: SSB-OLLAMA-NATIVE-GENERATE-COMPILER-REQUEST1
+request_profile_hash: sha256:b8dc76f2acb37e9d3eb1547341698f4f8930639bd3ccab5a46d2bb2f86ce6019
+top_p: omitted

@@ -16,8 +16,9 @@ pnpm --dir workbench run check
 pnpm --dir workbench run test
 ```
 
-The workbench build and E2E checks are also run by CI. Do not run provider or
-confirmatory commands as part of ordinary development validation.
+The included GitHub workflow is configured to run the workbench build and E2E
+checks. Do not run provider or confirmatory commands as part of ordinary
+development validation.
 
 For the public-surface and dependency gates, run:
 

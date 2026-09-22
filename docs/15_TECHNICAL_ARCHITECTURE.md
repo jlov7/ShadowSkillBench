@@ -196,7 +196,10 @@ It reads completed episode artifacts only.
 
 ### 3.9 Workbench
 
-Reads `artifacts/reports/workbench.json`.
+The sync step validates a content-hashed export, then writes the canonical bytes
+to the generated `workbench/data/workbench.json` input. `build:hold` uses the
+committed `workbench/data/workbench.hold.json` fixture. `build:report` expects a
+validated export at `artifacts/reports/workbench.json`.
 
 It has:
 
@@ -213,15 +216,9 @@ shadowskillbench/
 ├── pyproject.toml
 ├── uv.lock
 ├── Makefile
-├── .env.example
+├── config/
 ├── prompts/
-│   ├── skill_compiler.md
-│   └── executor_system.md
 ├── protocol/
-│   ├── preregistration.md
-│   ├── claims.yaml
-│   ├── freeze_manifest.json
-│   └── predictions.json
 ├── src/shadowskillbench/
 │   ├── core/
 │   ├── engine/
@@ -240,30 +237,16 @@ shadowskillbench/
 │   ├── analysis/
 │   ├── reporting/
 │   └── cli.py
-├── schemas/
 ├── tests/
-│   ├── unit/
-│   ├── property/
-│   ├── mutation/
-│   ├── golden/
-│   ├── replay/
-│   ├── leakage/
-│   ├── confounds/
-│   ├── integration/
-│   └── e2e/
-├── data/
-│   ├── development/
-│   └── confirmatory/
-├── artifacts/
-│   ├── traces/
-│   ├── skills/
-│   ├── episodes/
-│   ├── oracle/
-│   ├── analysis/
-│   └── reports/
+├── schemas/
 ├── scripts/
+├── docs/
 └── workbench/
 ```
+
+Generated experiment artifacts are not part of the curated public source tree.
+The package build uses explicit wheel and source-distribution allowlists in
+`pyproject.toml`.
 
 ## 5. Identifier conventions
 

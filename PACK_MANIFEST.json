@@ -2,9 +2,9 @@
   "classification": "SOFTWARE_AND_METHODS_NOT_CONFIRMATORY_RESULTS",
   "files": [
     {
-      "bytes": 7302,
+      "bytes": 12600,
       "path": "README.md",
-      "sha256": "fdb5b7a6b74507a7dd4d53365f89f30f6db3044b6e5ff09fb401c82daba08475"
+      "sha256": "d247f794eb393fa7da2c4cd3eb08b3af2937c98f0e1fa4a6237f8660132504bb"
     },
     {
       "bytes": 1740,
@@ -62,9 +62,9 @@
       "sha256": "8dd4fbfdcf1d9c10b7cc84a35cf4e1cb0eb1fd8461d2c8b9044809971f471075"
     },
     {
-      "bytes": 9627,
+      "bytes": 9395,
       "path": "docs/15_TECHNICAL_ARCHITECTURE.md",
-      "sha256": "75eecb799a7e057648dadf4ca9ef49fec6db2e5fcc3ad2a9dc5ae43c774166db"
+      "sha256": "fe3d0eb85b39901868b66a1aeed231b584e2e19b80a7c3d1686d21f8fbb13b7e"
     },
     {
       "bytes": 3422,

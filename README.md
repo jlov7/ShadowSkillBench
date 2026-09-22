@@ -50,24 +50,20 @@ context, and final evaluation as separate artifacts.
 
 ```mermaid
 flowchart TB
-    D[Synthetic demonstrations] --> C[Compiled procedure, if assigned]
-    C --> X[Condition-specific context]
-    P[Assigned policy, if any] --> X
-    T[Synthetic task] --> E[Executor]
-    X --> E
-    E --> A[Action trajectory]
-    A --> V[Hidden task verifier]
-    A --> G[Authority gate]
-    R[Current authority records] --> G
-    V --> O[Evidence-bound result]
-    G --> O
+    D["Synthetic<br/>demonstrations"] --> C["Compiled procedure<br/>if assigned"]
+    C --> X["Task and assigned<br/>executor context"]
+    X --> A["Action<br/>trajectory"]
+    A --> Q["Separate checks:<br/>hidden verifier<br/>authority gate"]
+    Q --> O["Evidence-bound<br/>result"]
 ```
 
 The executor sees only the task, condition-specific context, tool schemas,
 observations, and any learned artifact assigned to that condition. The hidden
-verifier and deterministic authority logic remain outside that context. This
-permits separate measurement of ordinary task completion and Completion Under
-Policy.
+verifier and deterministic authority logic remain outside that context. The
+verifier evaluates task completion. The authority gate evaluates the action
+trajectory against current authority records. Their results remain separate,
+which permits separate measurement of ordinary task completion and Completion
+Under Policy.
 
 Optional: [open the full-size process illustration](assets/readme/shadowskillbench-hero.svg).
 

@@ -4,6 +4,8 @@ import json
 from pathlib import Path
 
 import pytest
+from rich.text import Text
+from typer import rich_utils
 from typer.testing import CliRunner
 
 from shadowskillbench import cli
@@ -127,10 +129,9 @@ def test_wire_schema_hash_matches_the_public_model() -> None:
     )
 
 
-def test_capability_cli_requires_an_explicit_phase() -> None:
-    runner = CliRunner()
-    run = runner.invoke(
-        cli.app,
+@pytest.mark.parametrize(
+    "arguments",
+    [
         [
             "pilot",
             "capability-run",
@@ -143,16 +144,22 @@ def test_capability_cli_requires_an_explicit_phase() -> None:
             "--output-dir",
             "capability",
         ],
-    )
-    audit = runner.invoke(
-        cli.app,
         ["pilot", "capability-audit", "--output-dir", "capability"],
-    )
+    ],
+    ids=("capability-run", "capability-audit"),
+)
+def test_capability_cli_requires_an_explicit_phase_with_color(
+    arguments: list[str], monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.delenv("NO_COLOR", raising=False)
+    monkeypatch.setenv("TERM", "xterm-256color")
+    monkeypatch.setattr(rich_utils, "FORCE_TERMINAL", True)
+    result = CliRunner().invoke(cli.app, arguments, color=True)
+    normalized_output = Text.from_ansi(result.output).plain
 
-    assert run.exit_code != 0
-    assert "--phase" in run.output
-    assert audit.exit_code != 0
-    assert "--phase" in audit.output
+    assert result.exit_code == 2
+    assert "\x1b[" in result.output
+    assert "Missing option '--phase'." in normalized_output
 
 
 def test_capability_cli_rejects_an_unknown_bundle_before_audit() -> None:

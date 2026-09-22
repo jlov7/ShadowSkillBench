@@ -30,7 +30,7 @@ jobs:
       - run: uv run --no-sync python scripts/generate_sbom.py --check "${RUNNER_TEMP}/shadowskillbench.cdx.json"
       - run: uv run --no-sync python scripts/generate_sbom.py --self-check
       - run: uv run --no-sync python scripts/verify_pack_manifest.py
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: shadowskillbench-cyclonedx-sbom
           path: ${{ runner.temp }}/shadowskillbench.cdx.json

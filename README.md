@@ -1,10 +1,6 @@
 # ShadowSkillBench
 
 <p align="center">
-  <img src="assets/readme/shadowskillbench-hero.svg" alt="Observed practice is compiled into a skill, checked against current authority, and resolved to an action or a hold." width="100%">
-</p>
-
-<p align="center">
   <a href="pyproject.toml"><img alt="Python 3.12 or newer" src="https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white"></a>
   <a href="LICENSE"><img alt="MIT License" src="https://img.shields.io/badge/License-MIT-2EA44F"></a>
   <a href="docs/RESEARCH_BOUNDARY.md"><img alt="Research status: no confirmatory finding" src="https://img.shields.io/badge/Research-no_confirmatory_finding-C2410C"></a>
@@ -53,25 +49,27 @@ ShadowSkillBench keeps the learned procedure, current authority, model-visible
 context, and final evaluation as separate artifacts.
 
 ```mermaid
-flowchart LR
-    D[Synthetic demonstrations] --> C[Skill compiler]
-    C --> S[Learned SkillIR and SKILL.md]
-    T[Synthetic task] --> E[Executor context]
-    S --> E
-    P[Policy and authority records] --> E
+flowchart TB
+    D[Synthetic demonstrations] --> C[Compiled procedure, if assigned]
+    C --> X[Condition-specific context]
+    P[Assigned policy, if any] --> X
+    T[Synthetic task] --> E[Executor]
+    X --> E
     E --> A[Action trajectory]
-    P --> G[Deterministic authority gate]
-    A --> G
     A --> V[Hidden task verifier]
-    G --> R[Evidence-bound report]
-    V --> R
-    R --> W[Read-only workbench]
+    A --> G[Authority gate]
+    R[Current authority records] --> G
+    V --> O[Evidence-bound result]
+    G --> O
 ```
 
 The executor sees only the task, condition-specific context, tool schemas,
-observations, and learned artifact. The hidden verifier and deterministic
-authority logic remain outside that context. This permits separate measurement
-of ordinary task completion and Completion Under Policy.
+observations, and any learned artifact assigned to that condition. The hidden
+verifier and deterministic authority logic remain outside that context. This
+permits separate measurement of ordinary task completion and Completion Under
+Policy.
+
+Optional: [open the full-size process illustration](assets/readme/shadowskillbench-hero.svg).
 
 ## Included components
 
